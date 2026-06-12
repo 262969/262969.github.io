@@ -1,12 +1,24 @@
-// Software download data — DEMO / LEARNING PURPOSES ONLY
-// Original: ruanku.net (no longer affiliated)
-// All real CDN links replaced with placeholder hashes for open-source study
-// UI pattern: collapsible accordion software directory (Next.js App Router)
+// Software download data — FOR PRIVATE DEBUGGING / LEARNING PURPOSES ONLY
+// All real CDN links are stored as-is below. Modify `code` and `key` fields to update links.
+//
+// Link format:
+//   baidu:  https://pan.baidu.com/s/{code}?pwd={key}
+//   quark:  https://pan.quark.cn/s/{code}
+//   123:    https://www.123912.com/s/{code}
+//   unknown: treated as baidu with pwd=0000
+//
+// Each software entry has:
+//   - name: software version name
+//   - links[]: array of cloud drive links (pan, code, key)
+//   - shixiao: set to "true" to mark as expired (hidden from display)
+//
+// To change a link: find the software name, then edit the `code` (extraction code)
+// and `key` (password for Baidu Pan) fields inside the links array.
 
 export interface PanLink {
   pan: "baidu" | "quark" | "123" | "unknown";
   code: string;
-  key?: string; // Cloud drive extraction code (pwd parameter) — demo data only
+  key?: string; // Cloud drive extraction code (pwd parameter)
 }
 
 export interface SoftwareVersion {

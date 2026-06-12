@@ -5,14 +5,15 @@ import Image from "next/image";
 import { SoftwareCategory, SoftwareVersion, PanLink } from "@/types/software";
 import PANEL_DATA from "@/data/panel-data";
 
-// Demo / learning mode — links are placeholders
-const DEMO_MODE = true;
+// Demo mode — when true, all cloud drive links redirect to "#" (placeholder).
+// Set to false to use real links stored in src/data/panel-data.ts (private debugging only).
+const DEMO_MODE = false;
 
 // Banner link data
 const BANNER_LINK = DEMO_MODE ? "#" : "https://www.pansou.xin/#ruanku";
 const BANNER_TEXT = DEMO_MODE
   ? "🔒 Demo Mode — 网盘链接已替换为占位符，仅供学习 Next.js 静态站点架构"
-  : "没有你想要的资源？点击此处，一键搜索全网资源！";
+  : "💾 私人调试站点 — 所有网盘链接仅供个人学习使用";
 
 // Cloud drive config
 const PAN_CONFIG: Record<string, { label: string; icon: string; color: string }> = {
@@ -33,7 +34,7 @@ const PAN_CONFIG: Record<string, { label: string; icon: string; color: string }>
  */
 function getPanUrl(link: PanLink): string {
   if (DEMO_MODE) {
-    return `#demo-${link.pan}-${link.code}`;
+    return "#demo";
   }
   if (link.pan === "baidu") {
     return `https://pan.baidu.com/s/${link.code}?pwd=${link.key || "0000"}`;
@@ -151,7 +152,7 @@ export default function SoftwareAccordion({ panelIndex = 1 }: { panelIndex?: num
       <div className="down-wrap" style={{ padding: "0 20px" }}>
         <div className="down-box" style={{ border: 0, paddingBottom: "8px" }}>
           {/* Banner */}
-          <div className="down-pan" style={{ textAlign: "center", background: "#333", borderRadius: "5px", padding: "10px", marginBottom: "5px", fontSize: "16px", fontWeight: "bold" }}>
+          <div className="down-pan" style={{ textAlign: "center", background: "#333", borderRadius: "5px", padding: "10px", marginBottom: "5px", fontSize: "14px", fontWeight: "bold" }}>
             <a href={BANNER_LINK} target="_blank" rel="noopener noreferrer" style={{ color: "#f8ff00" }}>
               {BANNER_TEXT}
             </a>
@@ -178,6 +179,7 @@ export default function SoftwareAccordion({ panelIndex = 1 }: { panelIndex?: num
                     fontWeight: 500,
                     transition: "border-bottom-color .3s",
                     outline: "0",
+                    WebkitTapHighlightColor: "transparent",
                   }}
                 >
                   <div className="down-img" style={{ width: "25px", height: "25px", marginRight: "10px", background: "#eee", borderRadius: "3px", position: "relative", display: "inline-block", overflow: "hidden" }}>

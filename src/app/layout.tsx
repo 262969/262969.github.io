@@ -13,10 +13,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Software Hub — Demo Site (Learning Project)",
+  title: "Software Hub — Private Debugging Site",
   description:
-    "A demo Next.js static site showcasing a software directory UI pattern. " +
-    "No real download links — created for educational and open-source learning purposes.",
+    "A private static site for software catalog browsing and personal debugging. " +
+    "Not affiliated with any real service. For educational use only.",
 };
 
 export default function RootLayout({

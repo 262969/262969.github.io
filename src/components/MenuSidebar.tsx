@@ -7,7 +7,7 @@ export interface MenuCategory {
   name: string;
 }
 
-const MENU_ITEMS: MenuCategory[] = [
+export const MENU_ITEMS: MenuCategory[] = [
   { id: "menu-10", name: "常用软件" },
   { id: "menu-11", name: "Adobe" },
   { id: "menu-12", name: "AutoCAD" },
@@ -44,7 +44,7 @@ export default function MenuSidebar({ activeIndex, onActivate }: {
             listStyle: "none",
           }}
         />
-        <div className="menu-nav" style={{ position: "relative", transition: "transform .3s", zIndex: 2 }}>
+        <div className="menu-nav" style={{ position: "relative", transition: "transform .3s", zIndex: 2, display: "flex", flexDirection: "column" }}>
           {MENU_ITEMS.map((item, index) => (
             <div
               key={item.id}
@@ -65,6 +65,7 @@ export default function MenuSidebar({ activeIndex, onActivate }: {
                 textAlign: "right",
                 cursor: "pointer",
                 marginBottom: "0",
+                WebkitTapHighlightColor: "transparent",
               }}
             >
               <span>{item.name}</span>
