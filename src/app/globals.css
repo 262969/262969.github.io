@@ -118,9 +118,8 @@ body {
 
 /* Mobile sidebar panel — controlled by React (mobileMenuOpen state) */
 @media (max-width: 768px) {
-  /* The mobile sidebar uses inline display: none / display: flex via React.
-     We only define non-display properties here. */
-  .menu-mobile-panel {
+  .mobile-menu-panel {
+    display: flex !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
