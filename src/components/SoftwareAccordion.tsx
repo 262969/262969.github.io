@@ -9,12 +9,6 @@ import PANEL_DATA from "@/data/panel-data";
 // Set to false to use real links stored in src/data/panel-data.ts (private debugging only).
 const DEMO_MODE = false;
 
-// Banner link data
-const BANNER_LINK = DEMO_MODE ? "#" : "https://www.pansou.xin/#ruanku";
-const BANNER_TEXT = DEMO_MODE
-  ? "🔒 Demo Mode — 网盘链接已替换为占位符，仅供学习 Next.js 静态站点架构"
-  : "💾 私人调试站点 — 所有网盘链接仅供个人学习使用";
-
 // Cloud drive config
 const PAN_CONFIG: Record<string, { label: string; icon: string; color: string }> = {
   baidu: { label: "百度网盘", icon: "/assets/img/baidu.png", color: "#2980ef" },
@@ -151,11 +145,9 @@ export default function SoftwareAccordion({ panelIndex = 1 }: { panelIndex?: num
     <div className="down" style={{ overflow: "hidden", position: "relative", marginLeft: "10px", paddingLeft: "10px", borderLeft: "1px solid #ebeef5" }}>
       <div className="down-wrap" style={{ padding: "0 20px" }}>
         <div className="down-box" style={{ border: 0, paddingBottom: "8px" }}>
-          {/* Banner */}
-          <div className="down-pan" style={{ textAlign: "center", background: "#333", borderRadius: "5px", padding: "10px", marginBottom: "5px", fontSize: "14px", fontWeight: "bold" }}>
-            <a href={BANNER_LINK} target="_blank" rel="noopener noreferrer" style={{ color: "#f8ff00" }}>
-              {BANNER_TEXT}
-            </a>
+          {/* Info banner */}
+          <div className="down-pan" style={{ textAlign: "center", background: "#333", borderRadius: "5px", padding: "10px", marginBottom: "5px", fontSize: "13px", fontWeight: "bold", color: "#f8ff00" }}>
+            私人调试站点 — 所有网盘链接仅供个人学习使用
           </div>
 
           {/* Software categories */}
